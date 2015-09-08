@@ -1,4 +1,4 @@
-# Introduction to Testing, BDD, and RSpec
+# Introduction to Testing, TDD/BDD, and RSpec
 
 ### Pairing Discussion
 - What went well?
@@ -57,9 +57,7 @@ Now let's break our tests and specify that we want to describe a calendar compon
 require_relative 'calendar'
 
 describe Calendar do
-  before :each do
-    @calendar = Calendar.new
-  end
+  let(:calendar) { Calendar.new }
 end
 ```
 
@@ -78,9 +76,7 @@ require_relative 'calendar'
 require 'date'
 
 describe Calendar do
-  before :each do
-    @calendar = Calendar.new
-  end
+  let(:calendar) { Calendar.new }
 
   it "should parse a D M Y format string into a date" do
     date_string = "10 9 2015"
@@ -89,7 +85,18 @@ describe Calendar do
 end
 ```
 
-And let's write the code to pass the test in `calendar.rb`
+And let's write the code to pass the test in `calendar.rb`.  First we would address the error by defining a `parse_date` method
+
+```ruby
+class Calendar
+
+  def parse_date date_string
+  end
+  
+end
+```
+
+When we run the spec again, we see that our method is found, but our spec still doesn't pass.  Okay, let's implement the method.
 
 ```ruby
 class Calendar
@@ -137,7 +144,7 @@ end
 
 ### RSpec terminology and syntax
 - `describe`: The `describe` method creates an example group.  We're calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the examples.
-- `before`: A method that (optionally) takes a symbol and a block.  The symbol specifies when to run the block.  This is used for set up that is shared between tests, to DRY up your specs.
+- - `let`: Use let to set up a variable that is shared between tests, to DRY up your specs, and to keep your `it` blocks concise.  With `let`, the variable you set in the block is lazily loaded, which means the block is only executed the first time the variable is used.  With `let!`, the block is executed before each example.  Learn more about `let` from the resources linked below
 - `it`: each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
 - `expect`: expectations are `should` and `should_not` and work together with `matchers` to express an outcome
 - `matchers`: built-in matchers that allow you to test
@@ -171,7 +178,6 @@ end
     ```
    - And so much more!  Read about it in the resource linked below.
 - `context`: 
-- `let`
 
 ### Testing best practices
 - Test one thing at a time
@@ -181,5 +187,6 @@ end
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
 - [rspec gem documentation](http://rspec.info/documentation/)
 - [Starter BDD example, from the rspec docs](http://rspec.info/documentation/3.3/rspec-core/#Get_Started)
-- [RSpec expectation , from the rspec docs)(https://github.com/rspec/rspec-expectations)
+- [RSpec expectations, from the rspec docs)(https://github.com/rspec/rspec-expectations)
 - [RSpec best practices](http://betterspecs.org/)
+- [Great stackoverflow explanation of why `let` is good](http://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979)
