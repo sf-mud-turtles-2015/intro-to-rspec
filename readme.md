@@ -119,9 +119,7 @@ Okay, let's play around with a few more rspec tools.  Let's create a nested exam
 
 ```ruby
 describe Calendar do
-  before :each do
-    @calendar = Calendar.new
-  end
+  let(:calendar) { Calendar.new }
 
   it "should parse a D M Y format string into a date" do
     date_string = "10 9 2015"
@@ -187,6 +185,6 @@ end
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
 - [rspec gem documentation](http://rspec.info/documentation/)
 - [Starter BDD example, from the rspec docs](http://rspec.info/documentation/3.3/rspec-core/#Get_Started)
-- [RSpec expectations, from the rspec docs)(https://github.com/rspec/rspec-expectations)
+- [RSpec expectations, from the rspec docs](https://github.com/rspec/rspec-expectations)
 - [RSpec best practices](http://betterspecs.org/)
 - [Great stackoverflow explanation of why `let` is good](http://stackoverflow.com/questions/5359558/when-to-use-rspec-let/5359979#5359979)
