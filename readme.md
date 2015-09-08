@@ -22,7 +22,7 @@
 - Red, Green, Refactor cycle
 - We do just enough to make the tests pass, which disciplines us to write code in small, functional pieces
 - The goal is the test
-- With BDD we test behavior, which means focusing on business value. TDD focuses on how something will work, BDD focuses on why we build it at all.  Tools like RSpec (and Cucumber and Capybara, which you will learn about later) are helping push the industry in this direction.
+- With BDD we test behavior, which means focusing on business value. TDD focuses on how something will work, BDD focuses on the customer perspective of what we built.  Tools like RSpec (and Cucumber and Capybara, which you will learn about later) are helping push the industry in this direction.
 
 ### Setting up Rspec
 - RSpec is a gem, composed of several stand alone testing gems
@@ -179,6 +179,9 @@ end
    - And so much more!  Read about it in the resource linked below.
 - `context`: A powerful construct to keep your spec organized when your code does different things based on different states or conditions
 
+### Food for discussion/thought
+- Is what we just did TDD or BDD?  Why?
+- How can we make this calendar example more BDD?
 
 ### Resources
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
