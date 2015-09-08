@@ -110,7 +110,7 @@ class Calendar
 end
 ```
 
-Now that we have an exmaple going, if we run the `rspec` command with `--format doc` flag, we'll get documentation format output from our test run.
+Now that we have an example going, if we run the `rspec` command with `--format doc` flag, we'll get documentation format output from our test run.
 ```
 rspec calendar_spec.rb --format doc
 ```
