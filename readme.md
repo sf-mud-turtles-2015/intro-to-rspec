@@ -32,7 +32,7 @@ Then we create a spec file, `calendar_spec.rb`, and require the code under test 
 require 'calendar'
 ```
 
-This loads the code in `calendar.rb`.  The code is loaded exactly once, so if we were to require the same file again, it would not be loaded again.  Do you know what the difference between `require` and `require_relative` is?  `require_relative` allows you to "load a file that is relative to the file containing the require_relative statement". With require, ./ indicates a path that is relative to your current working directory.
+This loads the code in `calendar.rb`.  The code is loaded exactly once, so if we were to require the same file again, it would not be loaded again.  Do you know what the difference between `require` and `require_relative` is?  `require_relative` allows you to "load a file that is relative to the file containing the require_relative statement". With `require`, `./` indicates a path that is relative to your current working directory.
 
 Then we can run our spec with the following command.
 
