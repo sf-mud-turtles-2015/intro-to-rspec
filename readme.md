@@ -108,11 +108,38 @@ Now that we have an exmaple going, if we run the `rspec` command with `--format 
 rspec calendar_spec.rb --format doc
 ```
 
+Okay, let's play around with a few more rspec tools.  Let's create a nested example group using contexts.
+
+```ruby
+describe Calendar do
+  before :each do
+    @calendar = Calendar.new
+  end
+
+  it "should parse a D M Y format string into a date" do
+    date_string = "10 9 2015"
+    expect(@calendar.parse_date(date_string)).to eq Date.new(2015, 9, 10)
+  end
+  
+    context "when new calendar is created" do
+    it "should have no events" do
+      # ...
+    end
+  end
+
+  context "when new calendar is created with event import" do
+    it "should have events" do
+      # ...
+    end
+  end
+end
+```
+
 ### RSpec terminology and syntax
 - `describe`: The `describe` method creates an example group.  We're calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the examples.
 - `before`: A method that (optionally) takes a symbol and a block.  The symbol specifies when to run the block.  This is used for set up that is shared between tests, to DRY up your specs.
 - `it`: each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
-- `expect`: expectations are `should` and `should_not` and work together with `matchers` to express an outcome that should happen
+- `expect`: expectations are `should` and `should_not` and work together with `matchers` to express an outcome
 - `matchers`: built-in matchers that allow you to test
    - Equivalence 
     ```ruby
@@ -155,3 +182,4 @@ rspec calendar_spec.rb --format doc
 - [rspec gem documentation](http://rspec.info/documentation/)
 - [Starter BDD example, from the rspec docs](http://rspec.info/documentation/3.3/rspec-core/#Get_Started)
 - [RSpec expectation , from the rspec docs)(https://github.com/rspec/rspec-expectations)
+- [RSpec best practices](http://betterspecs.org/)
