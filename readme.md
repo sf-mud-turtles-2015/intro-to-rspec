@@ -71,13 +71,38 @@ end
 Okay, let's start defining some calendar behavior in our `calendar_spec.rb`
 
 ```ruby
+require_relative 'calendar'
+require 'date'
 
+describe Calendar do
+  before :each do
+    @calendar = Calendar.new
+  end
+
+  it "should parse a D M Y format string into a date" do
+    date_string = "10 9 2015"
+    expect(@calendar.parse_date(date_string)).to eq Date.new(2015, 9, 10)
+  end
+end
 ```
 
 And let's write the code to pass the test in `calendar.rb`
 
 ```ruby
+class Calendar
 
+  def parse_date date_string
+    day = date_string.split(" ")[0].to_i
+    month = date_string.split(" ")[1].to_i
+    year = date_string.split(" ")[2].to_i
+    Date.new(year, month, day)
+  end
+end
+```
+
+Now that we have an exmaple going, if we run the `rspec` command with `--format doc` flag, we'll get documentation format output from our test run.
+```
+rspec calendar_spec.rb --format doc
 ```
 
 ### RSpec terminology and syntax
@@ -85,8 +110,8 @@ And let's write the code to pass the test in `calendar.rb`
 - `before`: A method that (optionally) takes a symbol and a block.  The symbol specifies when to run the block.  This is used for set up that is shared between tests, to DRY up your specs.
 - `it`: each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
 - `context`: 
-- expect statement
-- matchers
+- `expect`: 
+- `matchers`:
 - let
 
 ### Testing best practices
