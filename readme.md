@@ -114,8 +114,10 @@ rspec calendar_spec.rb --format doc
 - `it`: each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
 - `expect`: expectations are `should` and `should_not` and work together with `matchers` to express an outcome that should happen
 - `matchers`: built-in matchers that allow you to test
-   - Equivalence `expect(actual).to eq(expected)`
-   - Identity `expect(actual).to be(expected)`
+   - Equivalence 
+    ```expect(actual).to eq(expected)`
+   - Identity 
+    `expect(actual).to be(expected)`
    - Comparisons `expect(actual).to be >= expected` 
    - Types `expect(actual).to be_an_instance_of(expected)`
    - Booleans `expect(actual).to be_truthy`
