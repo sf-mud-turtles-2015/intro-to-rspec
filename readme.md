@@ -18,16 +18,25 @@
 - RSpec is a gem
 - RSpec is a DSL for testing (as opposed to a GPL like ruby)
 
-First, we install the gem
+First, we install the gem.
+
 ```
 gem install rspec
 ```
 
-Then we create a spec file, `test_spec.rb`, and require the code under test within that file
+Then we create a spec file, `calendar_spec.rb`, and require the code under test within that file.
+
 ```
-require 'production'
+require 'calendar'
 ```
-This loads the code in `production.rb`
+
+This loads the code in `calendar.rb`.  The code is loaded exactly once, so if we were to require the same file again, it would not be loaded again.
+
+Then we can run our spec with the following command.
+
+```
+spec calendar_spec.rb 
+```
 
 ### RSpec terminology and syntax
 - describe block
