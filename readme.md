@@ -34,8 +34,8 @@ gem install rspec
 
 Then we create a spec file, `calendar_spec.rb`, and require the code under test within that file.
 
-```
-require 'calendar'
+```ruby
+require_relative 'calendar'
 ```
 
 This loads the code in `calendar.rb`.  The code is loaded exactly once, so if we were to require the same file again, it would not be loaded again.  Do you know what the difference between `require` and `require_relative` is?  `require_relative` allows you to "load a file that is relative to the file containing the require_relative statement". With `require`, `./` indicates a path that is relative to your current working directory.
@@ -43,16 +43,34 @@ This loads the code in `calendar.rb`.  The code is loaded exactly once, so if we
 Then we can run our spec with the following command.
 
 ```
-spec calendar_spec.rb 
+rspec calendar_spec.rb 
+```
+
+We fail with an error.  Our `calendar.rb` file doesn't exist yet.  Let's create an empty file, just enough to pass the spec.
+
+Now let's break our tests and specify that we want to describe a calendar component.  We can add the following to our `calendar_spec.rb`
+
+ruby```
+require_relative 'calendar'
+
+describe Calendar do
+  before :each do
+    @calendar = Calendar
+  end
+end
 ```
 
 ### RSpec terminology and syntax
-- describe block
+- `describe`: Calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the spec
 - example block `it`
 - context block
 - expect statement
 - matchers
 - let
+
+### Testing best practices
+- Test one thing at a time
+- Keep tests isolated and independent from one another
 
 ### Resources
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
