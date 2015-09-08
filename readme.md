@@ -115,18 +115,33 @@ rspec calendar_spec.rb --format doc
 - `expect`: expectations are `should` and `should_not` and work together with `matchers` to express an outcome that should happen
 - `matchers`: built-in matchers that allow you to test
    - Equivalence 
-    ```
+    ```ruby
     expect(actual).to eq(expected)
     ```
    - Identity 
-    ```
+    ```ruby
     expect(actual).to be(expected)
     ```
-   - Comparisons `expect(actual).to be >= expected` 
-   - Types `expect(actual).to be_an_instance_of(expected)`
-   - Booleans `expect(actual).to be_truthy`
-   - Regular expressions `expect(actual).to match(/expression/)`
-   - Errors `expect { ... }.to raise_error`
+   - Comparisons 
+    ```ruby
+    expect(actual).to be >= expected
+    ``` 
+   - Types 
+    ```ruby
+    expect(actual).to be_an_instance_of(expected)
+    ```
+   - Booleans 
+    ```ruby
+    expect(actual).to be_truthy
+    ```
+   - Regular expressions 
+    ```ruby
+    expect(actual).to match(/expression/)
+    ```
+   - Errors 
+    ```ruby
+    expect { ... }.to raise_error
+    ```
    - And so much more!  Read about it in the resource linked below.
 - `context`: 
 - `let`
