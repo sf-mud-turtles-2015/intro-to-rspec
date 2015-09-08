@@ -123,7 +123,7 @@ describe Calendar do
 
   it "should parse a D M Y format string into a date" do
     date_string = "10 9 2015"
-    expect(@calendar.parse_date(date_string)).to eq Date.new(2015, 9, 10)
+    expect(calendar.parse_date(date_string)).to eq Date.new(2015, 9, 10)
   end
   
     context "when new calendar is created" do
