@@ -50,20 +50,31 @@ We fail with an error.  Our `calendar.rb` file doesn't exist yet.  Let's create 
 
 Now let's break our tests and specify that we want to describe a calendar component.  We can add the following to our `calendar_spec.rb`
 
-ruby```
+```ruby
 require_relative 'calendar'
 
 describe Calendar do
   before :each do
-    @calendar = Calendar
+    @calendar = Calendar.new
   end
 end
 ```
 
+Now the tests fail again.  Let's make them work by modifying `calendar.rb`
+
+```ruby
+class Calendar
+
+end
+```
+
+
+
 ### RSpec terminology and syntax
-- `describe`: Calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the spec
-- example block `it`
-- context block
+- `describe`: The `describe` method creates an example group.  We're calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the examples.
+- `before`: A method that (optionally) takes a symbol and a block.  The symbol specifies when to run the block.  This is used for set up that is shared between tests, to DRY up your specs.
+- `it`: each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
+- `context`: 
 - expect statement
 - matchers
 - let
@@ -74,5 +85,5 @@ end
 
 ### Resources
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
-- rspec gem documentation
+- (rspec gem documentation](http://rspec.info/documentation/)
 - shoulda matchers gem
