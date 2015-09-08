@@ -68,7 +68,17 @@ class Calendar
 end
 ```
 
+Okay, let's start defining some calendar behavior in our `calendar_spec.rb`
 
+```ruby
+
+```
+
+And let's write the code to pass the test in `calendar.rb`
+
+```ruby
+
+```
 
 ### RSpec terminology and syntax
 - `describe`: The `describe` method creates an example group.  We're calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the examples.
@@ -85,5 +95,6 @@ end
 
 ### Resources
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
-- (rspec gem documentation](http://rspec.info/documentation/)
+- [rspec gem documentation](http://rspec.info/documentation/)
+- [Basic BDD example from the rspec docs](http://rspec.info/documentation/3.3/rspec-core/#Get_Started)
 - shoulda matchers gem
