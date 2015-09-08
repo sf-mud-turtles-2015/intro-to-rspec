@@ -1,5 +1,11 @@
 # Introduction to Testing, BDD, and RSpec
 
+### Pairing Discussion
+- What went well?
+- What was difficult?
+- Checking in with your pair
+- Giving and receiving feedback
+
 ### Why Do We Care About Testing?
 - Programatically specify behavior
 - Ensure program correctness
