@@ -16,10 +16,13 @@
 ### What is a Spec?
 - A description of expected behavior that we can run against production code
 
-### What is TDD/DBB?
+### What is TDD/BDD?
 - TDD/BDD means we write our spec code before we write production code
+- Testing a whole code base after it is written is incredibly challenging
 - Red, Green, Refactor cycle
 - We do just enough to make the tests pass, which disciplines us to write code in small, functional pieces
+- The goal is the test
+- With BDD we test behavior, which means focusing on business value. TDD focuses on how something will work, BDD focuses on why we build it at all.  Tools like RSpec (and Cucumber and Capybara, which you will learn about later) are helping push the industry in this direction.
 
 ### Setting up Rspec
 - RSpec is a gem
@@ -109,10 +112,18 @@ rspec calendar_spec.rb --format doc
 - `describe`: The `describe` method creates an example group.  We're calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the examples.
 - `before`: A method that (optionally) takes a symbol and a block.  The symbol specifies when to run the block.  This is used for set up that is shared between tests, to DRY up your specs.
 - `it`: each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
+- `expect`: expectations are `should` and `should_not` and work together with `matchers` to express an outcome that should happen
+- `matchers`: built-in matchers that allow you to test
+   - Equivalence `expect(actual).to eq(expected)`
+   - Identity `expect(actual).to be(expected)`
+   - Comparisons `expect(actual).to be >= expected` 
+   - Types `expect(actual).to be_an_instance_of(expected)`
+   - Booleans `expect(actual).to be_truthy`
+   - Regular expressions `expect(actual).to match(/expression/)`
+   - Errors `expect { ... }.to raise_error`
+   - And so much more!  Read about it in the resource linked below.
 - `context`: 
-- `expect`: 
-- `matchers`:
-- let
+- `let`
 
 ### Testing best practices
 - Test one thing at a time
@@ -121,5 +132,5 @@ rspec calendar_spec.rb --format doc
 ### Resources
 - [require and require relative ruby docs](http://ruby-doc.org/core-2.1.2/Kernel.html)
 - [rspec gem documentation](http://rspec.info/documentation/)
-- [Basic BDD example from the rspec docs](http://rspec.info/documentation/3.3/rspec-core/#Get_Started)
-- shoulda matchers gem
+- [Starter BDD example, from the rspec docs](http://rspec.info/documentation/3.3/rspec-core/#Get_Started)
+- [RSpec expectation , from the rspec docs)(https://github.com/rspec/rspec-expectations)
