@@ -144,7 +144,7 @@ end
 - `describe`: The `describe` method creates an example group.  We're calling a method defined in the rspec gem.  We pass in the name of the component under test and a block that has the examples.
 - `let`: Use let to set up a variable that is shared between tests, to DRY up your specs, and to keep your `it` blocks concise.  With `let`, the variable you set in the block is lazily loaded, which means the block is only executed the first time the variable is used.  With `let!`, the block is executed before each example.  Learn more about `let` from the resources linked below
 - `it`: Each example is defined with the `it` method.  `it` takes a string that describes the requirement, which reads like an English sentence, and a block that contains the test case.
-- `expect`: Expectations are `should` and `should_not` and work together with `matchers` to express an outcome
+- `expect`: Expectations work together with `matchers` to express an outcome
 - `matchers`: Built-in matchers that allow you to test
    - Equivalence 
     ```ruby
